@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My demo Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* Base Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(120deg, #fdfbfb, #ebedee);
+    color: #333;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== Header ===== */
+  header {
+    text-align: center;
+    padding: 100px 20px 60px;
+    animation: fadeDown 1.5s ease forwards;
+  }
+
+  header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 3.2em;
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    color: #666;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== Section ===== */
+  section {
+    width: 90%;
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+    position: relative;
+  }
+
+  section h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #222;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ===== Card ===== */
+  .card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    animation: fadeIn 1.8s ease forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  }
+
+  .card p {
+    color: #444;
+    font-size: 1.05em;
+    line-height: 1.8;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+    font-size: 0.9em;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1.4s;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Smooth fade-on-scroll (optional enhancement) */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>Hi,I’m safvan</h1>
+    <p>A humble designer & developer who loves simplicity ✨</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I’m passionate about crafting clean, meaningful digital experiences.
+        I value calm aesthetics, soft animations, and thoughtful details that make designs feel alive.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 safvan — Made with ☕ and calm vibes</p> 
+  </footer>
+</body>
+</html>
