@@ -1,0 +1,165 @@
+-- my SQL--
+
+show all databases : show databases;
+create a database : create database database_name;
+use database : use database_name;
+delete a database : drop database database_name;
+display current database : select database;
+
+datatypes :
+	char : store fixed length character
+	varchar : store variable lengrh character strings
+	int : store whole numbers
+	decimal(p,d) : store exact decimal numbers
+			. p(precision) is the total number of didits
+			. d(scale) is the number of digits after the decimal point
+	date : store date yyyy-mm-dd
+	time : store time hh:mm:ss
+	datetime : store both date and time
+
+creating a table:
+	create table table_name(column1 datatype,column2 datatype,...);
+	eg:- create table student(id int,name varchar(50),age int,course varchar(50));
+
+show all tables in the database: show tables;
+describe table structure : describe table_name; or desc table_name;
+deleting a table : drop table table_name;
+# default value set cheyyan create table il column datatype koode default 'value' kodtha mathi.. 
+
+
+inserting and retrieving data :
+	insert into table_name(column1,column2,...) values(value1,value2,...) 
+	eg:- insert into student(name,age,grade,birth_date)values(1,'arjun',20,'A+','2004-05-15'),(2,'meera',19,'B-','2005-08-21');
+
+retrieving data :
+	fetching all records: select * from table_name;
+	specific column mathi enkil : select column1,column2 from table_name;
+
+
+primary key :
+	is a column or a set of columns in a table that uniquely identifies each row. it is not null and cannot repeate..
+	ith set cheyyan primary key enna constrint kodthal mathi.. eg: create table il id int primary key.
+
+not null constraint : name varchar(100) not null
+
+where clause :
+	used to filter records in a select,update, or delete statement. it helps retrieve only the rows that match a specific condition..
+	syntax : select colomn1,column2 from table_name where condition;
+	eg: select * from student where age>20;
+	    select * from student where course="cs";
+		select * from student where not name="anu";
+
+update query :
+	update table_name set column1=value1,column2=value2 where condition;
+	eg: update student set course="cs",age=25 where id in (3,4);
+
+delete query :
+	delete from table_name where condition;
+	eg: delete from student where id=3;
+
+order by query :
+	the order by clause is used to sort query results in ascending(asc)or descending(desc) order.
+	syntax: select column1,column2 from table_name order by column_name [asc|desc];
+	eg: select * from student order by name asc;
+
+limit query :
+	the limit clause is used to restrict the number of rows returned in a select query or limit the number of affected in delete or update queries.
+
+	syntax: select column1,column2 from table_name limit number_of_rows;
+	eg: select * from student order by name asc limit 2;
+
+
+Aggregate functions :
+	Aggregate functions perform calculations on multiple rows and return a single result. they are often used with the GROUP BY clause.
+	count() : count the number of rows eg: count(*)
+	sum() : calculates the total sum eg: sum(salary)
+	avg() : returns the average value eg: avg(age)
+	min() : finds the minimum value eg: min(price)
+	max() : finds the maximum value eg: max(score)
+
+	eg: select count(*) as count_student from student;  as- aliasis :pakaram name nmk kodkam..
+
+
+GROUP BY clause:
+	is used to group rows with the same values in a column and perform aggregate functions like count(),sum(),avg(),min(),and max() on each group..
+	syntax: select column_name,aggregate_function(column_name) from table_name group by column_name;
+	eg: select course,count(*) as student_count from student group by course;
+
+
+IN and BETWEEN operators:
+	in : matches a value in a list eg: where course in ('math','cs');
+	not in : excludes values from a list eg: where age not in (20,21);
+	between : select values within a range eg: where marks between 80 and 90;
+	not between : excludes values outside a range eg: where age not between 18 and 25;
+
+
+CASE statement :..................
+
+
+Relationships :
+	refers to the connection between two or more tables based on a common field.
+	types of relatiionships :
+		1.one-to-one(1:1) relationship
+		2.one-to-many(1:m) relationship
+		3.many-to-many(m:n) relationship
+
+Foreign key :
+	foreign key is a column that establishes a relationship between two tables by referring to the primary key of another table.
+
+	eg:
+		create table customers(
+			customerId primary key int
+			name varchar(50),
+			email varchar(100)
+		);	
+		
+		create table orders(
+			orderId int primary key,
+			customerId int,
+			productName varchar(100),
+			quantity int,
+			price decimal(10,2),
+			totalPrice decimal(10,2),
+			orderdate date
+			foreign key (customerId) references customers(customerId)
+		);
+		ithinte insertion undd ezhtheetilla...
+
+
+
+JOIN :
+	a join is used to combine data from two or more tables based on a related column. join cheyyunnath foreign key column use cheithitanu..
+	types of JOINs :
+		. inner join : returns matching records from both tables.. common datas mathre result il kitollu..
+		. left join : returns all records from the left table and matching records from the right table
+		.right join : returns all records from the right table and matching records from the left table
+
+
+	syntax: SELECT table1.column1, table2.column2 FROM table1 INNER JOIN table2 ON table1.common_column1 = table2.common_column2;
+
+
+
+LIKE :
+	the LIKE operator is used to search for a specified pattern in a column.
+	it is commonly used with WHERE to filter results based on partial matches.
+
+	syntax: select column1,column2,... from table_name where column_name LIKE 'pattern';
+	eg:- 
+	pattern : 'a%' start with a
+		  '%a' ends with a
+		  '%a%' anywhere a
+
+
+
+Alter table :
+	used to modify an existing table by adding,deleting,or changing columns and constraints..
+	table structure il enthenkilm chnges varuthan..
+
+	syntax: alter table table_name action;
+	eg: alter table customers add column phoneNumber varchar(15);
+	alter table customers modify column phoneNumber varchar(20);
+	alter table customers change column phoneNumber contactnumber varchar(20);
+	alter table customers drop column contactnumber;
+	alter table customers rename clients;
+
+
