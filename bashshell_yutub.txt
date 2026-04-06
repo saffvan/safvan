@@ -1,0 +1,105 @@
+pwd - current working directory
+ls - list fles
+mkdir directory_name - make directory ( oru folder create cheyyunnu..)
+touch file_name.txt - oru text_file create cheyyunnu
+echo "" - display or print cheyyan use cheyyunnu
+clear - terminal clear akan use cheyyunnu
+mv old new - move or rename..
+
+man command_name - ith adichal aa command ne kurichulla full details kittum.. including options..
+eg: man ls
+
+--shell sript--
+
+* shell file nte extention aan '.sh'
+* file nte first line nml use cheyyunna shell nte path aayirikanam.. 
+  ath kittan 'which bash' enn type cheith enter adikuka.. ath copy cheyyuka
+* file create cheyyan 'touch file_name.sh' enter
+* eni ee file oru editor il open akanam.. athinu 'vi file_name.sh' enter
+* eni editor il enter avan (cursor mode lek avan) 'i' enter adikuka
+* eni athile first line enn parayunnath nml nerathe copy cheitha path aayirikanam.. 
+  '#!/bin/bash' ingane '#!' ittitt paste adicha mathi.. 
+* eni code okke ezthitt ith run cheyyan adyam nmk ee editor il ninn exit adikanam..
+  athinu 'esc' button click cheithitt save cheyyan vendi ':wq' (write and quit) um type cheyyuka..enter..
+* ippo editor il ninn purathethi eni ath execute cheyyan './file_name.sh' enter
+* appo permission denied enn kanikum.. athayath ith execute cheyyan ulla permission current user nu illa..
+* apo file nte mode change akanam.. athinu 'chmod u+x file_name.sh' (change mode user can execute the file) enter
+* ipo executable aan.. eni onnude './file_name.sh' enter
+
+
+- variables -
+* no datatypes in shell script
+* must follow the variable naming rule..
+* case sensitive aan
+
+*    'variable_name=value'
+
+      eg: my_name=john
+          age=25
+          echo "may name is " $my_name
+
+
+* user input - 'read variable_name'
+
+* > nu '-gt' , >= nu 'ge' , == nu 'eq' angane...
+* && nu '-a' , || nu '-o' 
+  
+
+- conditional statements -
+* if statement--
+if [ $num -gt 'or >' 0 ]; then      * '[]'squir bracket kazhinjitt space kodukanam.. ath pole ';' kazhinjittulla 'then' edelum space venam..
+	echo "$num is positive"
+  elif [ $num -lt 0 ]; then
+	echo "$num is negative"
+  else
+	echo "$num is zero"
+  fi
+
+*switch statement--
+variable_name="abc"
+case $variable_name in
+	"abc")
+		echo "is abc"
+		;;
+	"bbd")
+		echo "bbd";;
+	"fff")
+		echo "fff";;
+	*)
+		echo "invalid";;
+esac
+
+
+
+- Loops -
+*for loop--
+
+for i in {1..5}
+do
+	echo $i
+done
+
+*while loop--
+i=1
+while [[ $i le 10 ]]; do
+	echo $i
+	(( i+=1 ))
+done
+
+
+- Array -
+array_name=(1 2 3 4 5)
+echo ${array_name[index]}
+
+- Function -
+function function_name(){
+	echo "hello"
+}
+
+or
+
+function_name(){
+	echo "hello"
+}
+
+function_name    - calling function
