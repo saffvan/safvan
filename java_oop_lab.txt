@@ -1,0 +1,160 @@
+-- package package_name;
+
+-- java nml ezhthendath oru class inu ullilanu..
+-- java program save cheyyumbol same class name il aayirikanam...
+-- class create cheyyan..
+	public class ClassName{}
+-- eni namuk oru main method venam.. athil ulla code aan aadyam run cheyyuka(entry point aan).. like a black bord in a class room..
+	public class ClassName{
+		public static void main(String[] args){
+
+		}
+	}
+
+-- output print cheyyan..
+	System.out.println("hello world");
+
+-- variable declaration : 
+	data_type variable_name;
+
+-- java methods.. like function 
+-- nml ennitt athine call cheithale ath work cheyyollu..
+-- method create cheyyal (main method nte purathanu nml methiode create cheyyunnath.. ennitt main method il call cheyyam.. ) :
+	static void method_name(){
+	}
+-- calling method :
+	method_name();
+
+
+-- Method Overloading :
+-- oree name il ulla orupad methods namuk create cheyyam..  but athil kodukunna parameters diffrenet aayirikanam..
+
+	eg:
+		static int findSum(int a,int b){
+			return a+b;
+		}
+		static int findSum(int x,int y,int z){
+			return x+y+z;
+		}
+		static double findSum(double c, double d){
+			return c+d;
+		}
+
+	 public static void main(String[] args){
+		int sum1=findSum(10,20);
+		int sum2=findSum(2,4,6);
+		double sum3=findSum(3.56,6.89);
+	    System.out.println(sum1);
+	    System.out.println(sum2);
+            System.out.println(sum3);
+
+	}
+
+
+-- OOP concepts.. :
+	class - template for object or blue print of object.. collection of same type of objects aan oru classil undavuka..
+	object - members of a class.. anything is a object..
+-- oru object nu 'attributes'(properties) and 'methods'(functions) undayirikum..
+
+-- class create cheyyan :
+	    public class ClassName{
+		// attributes define Cheyyam.. eg:-
+		datatype attribute1;
+		datatype attribute2;....
+	    }
+
+	// ith separate class il aayirikum..
+
+
+-- object create cheyyan : adyam namude main classilek varuka.. avide main methode nu ullil aan object create cheyyuka..
+	public class ClassName{
+		public static void main(String[] args){
+			class_name object_name1 = new class_name(); //constructor enn vilikunnu.. //1st object
+			object_name.attribute1 = value;
+			object_name.attribute2 = value;
+			......... //namuk eni ee object_name use cheith aa classile oro variable (attributes) um access cheyyam.. athinu values um kodukam..
+			
+
+			class_name object_name2 = new class_name(); // 2nd object
+			object_name2.attribute1 = value;
+			object_name2.attribute2 = value;
+			..........
+
+			// System.out.println(object_name.attribute1); // print cheyyal ingane aan.. aa object use cheitha mathi eni..
+		}
+	}
+
+
+-- method create cheyyan classin ullil vannitt,
+	public void method_name(){
+		statements..;
+	}
+	// public aanenkil namuk object use cheithitte method access cheyyan patullu..
+	// static aanenkil object nte avashyam illa.. direct class name use cheith access cheyyam 
+		eg: class_name.method_name();
+
+-- eni ee method access cheyyan main class il poyitt.. object vech call cheyyunnu..
+	object_name.method_name();
+
+
+
+-- Inheritance :
+one class acquires the properties of another class.. (eg: parent vs child)
+// child class inherits the properties of parent class
+
+// aadyam oru parent class create cheyyuka.. athil athinte properties(attributes) um methods um undayirikum.. 
+// ath engane child class access cheyyum ennathan inheritance.. using 'extends' keyword..
+	class child_class_name extends parent_class_name{
+
+	}
+// angane ethra child class venamenkilum undakam..
+
+//eni aa child classinte oro object namuk main class il create cheyyavunnathanu.. ennitt ath use cheith namuk attributes um methods um access cheyyam.. athinu values um kodukam..
+
+
+
+-- Polymorphism :
+(many forms) perform single action in different ways..
+Achive polymorphism in following ways,
+1. method overriding ( like inheritance)
+2. method overloading
+3. operator overloading
+
+
+-- abstraction :
+
+// using 'abstract' key word..
+// adstract il namuk object create cheyyan kazhiyilla..
+	abstract class class_name{
+	}
+//abstract using interfaces keyword..
+//interface is implemented by a class using "implements" keyword
+//multiple inheritance can achieved through interface.
+	public interface interface_name {
+		void abstract_method1();
+		........
+
+	} 
+	// eni class use cheith implement cheyyanam..
+	class class_name implements interface_name{
+		//abstract_method nu body kodukuka
+		public void abstract_method(){
+			statements;
+		}
+		.......
+	}
+
+	// eni namuk main class il object undaki ith access cheyyam..
+
+
+
+-- user input.. :
+
+input cheyyan aadyam oru package file il import cheyyanam..
+	import java.util.Scanner;
+
+	// ennit main method il Scanner classinu oru object create cheyyanam..
+		Scanner object_name = new Scanner(System.in);
+	// ee object use cheithittan user input edkunnath..
+		datatype variable = object_name.nextLine();
+		// nextInt().. etc 
